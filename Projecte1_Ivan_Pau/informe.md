@@ -30,40 +30,40 @@ Para el desarrollo del programa encargado de generar el “blink”, primero ini
 int led = 23;
 
 
-void setup() {
-  Serial.begin(115200);
-  pinMode(led, OUTPUT);  
-  Serial.println("");
-  Serial.println("Hola mundo");
-}
+        void setup() {
+        Serial.begin(115200);
+        pinMode(led, OUTPUT);  
+        Serial.println("");
+        Serial.println("Hola mundo");
+        }
 
 
-void loop() {
+       void loop() {
 
 
-  //Parte principal
+       //Parte principal
 
 
-  digitalWrite(led,HIGH);  //Encender Led
-  Serial.println("ON");     //Mostrar ON por Serie
-  delay(500);               //Espera 500 ms
-  digitalWrite(led,LOW);   //Apagar Led
-  Serial.println("OFF");    //Mostrar OFF por Serie
-  delay(500);               // Espera 500 ms
+        digitalWrite(led,HIGH);  //Encender Led
+        Serial.println("ON");     //Mostrar ON por Serie
+        delay(500);               //Espera 500 ms
+        digitalWrite(led,LOW);   //Apagar Led
+        Serial.println("OFF");    //Mostrar OFF por Serie
+        delay(500);               // Espera 500 ms
 
 
-  //Parte voluntaria
+        //Parte voluntaria
 
 
-  int valor = analogRead(GPIO_NUM_4);
-  Serial.println(valor);
-}
+        int valor = analogRead(GPIO_NUM_4);
+        Serial.println(valor);
+      }
 
 
 
 
 ### 3.2-Diagrama de flujo
-flowchart TD
+    flowchart TD
 
 
     k(Inicio) --> A[Asignar puerto serie]
