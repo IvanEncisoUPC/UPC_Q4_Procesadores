@@ -9,23 +9,38 @@ output: html_document
 # Informe Practica 3 Ivan Enciso & Pau Codina
 
 
-## 1-Introducción
+## 1. Introducción
 
 
 El presente informe describe el funcionamiento de dos periféricos (Wifi y Bluetooth), mediante un web server que nosotros mismos generaremos utilizando el microprocesador ESP32. A su vez, nos ayudaremos de una aplicación movil para establecer esta comunicación serie Bluetooth.
 
 #
 
-## 2-Objetivos
+## 2. Objetivos
 
 
 El objetivo principal de la práctica es comprender el funcionamiento de WIFI y Bluetooth. 
 
 #
 
-## 3-Desarrollo
+### 3. Desarrollo
 
-### 3.2 Funcionamiento
+### 3.2 Salida puerto serie
+
+La salida por el puerto serie mostrará información sobre el proceso de conexión a la red Wi-Fi y el inicio del servidor HTTP. 
+
+Un ejemplo de lo que puede salir por el puerto série podría ser este:
+
+    Try Connecting to 
+    Xiaomi_11T_Pro
+    ........
+    WiFi connected successfully
+    Got IP: 192.168.1.10
+    HTTP server started
+
+Es importante tener en cuenta que la salida real por el puerto serie puede variar según la configuración de la red Wi-Fi, el estado de la conexión y otros factores. Además, pueden aparecer mensajes adicionales o información de depuración según el código y las bibliotecas utilizadas.
+
+### 3.3 Funcionamiento
 
 Nuestro programa consiste en la generación de una página web. Para ello es esencial disponer de conexión a Internet, por lo que nuestra primera parte de código es la que se encarga de establecer una conexión via WIFI a un punto de acceso como puede ser un teléfono movil.
 
@@ -33,7 +48,7 @@ El setup nos muestra si la conexión con este punto de acceso ha sido realizada 
 
 El loop tiene en su interior el código necesario para mostrar la información que nosottros queremos en la web que estamos creando. 
 
-### 3.3 Código:
+### 3.4 Código:
 #
     #include <WiFi.h>
     #include <WebServer.h>
@@ -89,9 +104,26 @@ El loop tiene en su interior el código necesario para mostrar la información q
 
 #
 
-### Ejercicio 2:
+### 4. Ejercicio 2:
 
-### Código:
+### 4.2 Salida puerto serie: 
+
+ Por el puerto serie salen los datos que ingresan a través del puerto serial USB y los datos que llegan a través de Bluetooth.
+
+Este es un ejemplo de lo que podría salir por el puerto serie:
+
+    The device started, now you can pair it with bluetooth!
+    Hello from Bluetooth device
+    Received message: Change the password
+
+
+Es importante tener en cuenta que la salida real por el puerto serie dependerá de las interacciones específicas con los dispositivos Bluetooth emparejados y los mensajes enviados y recibidos
+
+### 4.3 Funcionamiento: 
+
+Este código permite establecer una comunicación bidireccional entre el ESP32 y otro dispositivo a través de Bluetooth. Los datos enviados desde el puerto serial se transmiten a través de la conexión Bluetooth, y los datos recibidos se envían al puerto serial estándar. Esto permite la comunicación inalámbrica entre el ESP32 y otro dispositivo compatible con Bluetooth, como un teléfono o un ordenador.
+
+### 4.4 Código:
 
 #
     #include "BluetoothSerial.h"
@@ -115,20 +147,10 @@ El loop tiene en su interior el código necesario para mostrar la información q
     }
 #
 
-### Funcionamiento: 
 
-#
+### 5. Ejercicio adicional:
 
-Este código permite establecer una comunicación bidireccional entre el ESP32 y otro dispositivo a través de Bluetooth. Los datos enviados desde el puerto serial se transmiten a través de la conexión Bluetooth, y los datos recibidos se envían al puerto serial estándar. Esto permite la comunicación inalámbrica entre el ESP32 y otro dispositivo compatible con Bluetooth, como un teléfono o un ordenador.
-
-#
-### Salida puerto serie: 
-
- Por el puerto serie salen los datos que ingresan a través del puerto serial USB y los datos que llegan a través de Bluetooth.
-#
-### Ejercicio adicional:
-
-### Código:
+### 5.2 Código:
 #
 
     #include <WiFi.h>
